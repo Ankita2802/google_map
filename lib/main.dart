@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_maps_flutter_example/provider/map_service_provider.dart';
+import 'package:google_maps_flutter_example/screen.dart/demo.dart';
 import 'package:google_maps_flutter_example/screen.dart/map_screen_services.dart';
 import 'package:provider/provider.dart';
 
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (context) => MapProvider())],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MapScreen(),
+        home: MapScreenNew(),
       ),
     );
   }

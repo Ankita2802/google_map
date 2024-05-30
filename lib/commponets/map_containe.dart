@@ -43,17 +43,19 @@ class _MapContaineState extends State<MapContaine> {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: GoogleMap(
+        zoomGesturesEnabled: true,
         initialCameraPosition: CameraPosition(target: mylatlong, zoom: 12),
         markers: {
           Marker(
-              infoWindow: InfoWindow(title: address),
-              position: mylatlong,
-              draggable: true,
-              markerId: const MarkerId('1'),
-              onDragEnd: (value) {
-                log(value.toString(), name: 'value');
-                setMarker(value);
-              }),
+            infoWindow: InfoWindow(title: address),
+            position: mylatlong,
+            draggable: true,
+            markerId: const MarkerId('1'),
+            onDragEnd: (value) {
+              log(value.toString(), name: 'value');
+              setMarker(value);
+            },
+          ),
         },
         onTap: (value) {
           setMarker(value);

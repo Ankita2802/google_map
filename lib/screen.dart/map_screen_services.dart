@@ -96,8 +96,12 @@ class _MapScreenState extends State<MapScreen> {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                /// search widget and filterarations add
                                 SearchWidget(
-                                    searchController: searchController),
+                                  searchController: searchController,
+                                ),
+
+                                /// slider for Google Map Kilomer set with api
                                 Slider(
                                   min: 0.0,
                                   max: 15.0,
@@ -119,9 +123,11 @@ class _MapScreenState extends State<MapScreen> {
                                     });
                                   },
                                 ),
+                                // 0 TO 15KM Assign on Google Map distances
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 20),
+                                    horizontal: 20,
+                                  ),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
@@ -140,7 +146,10 @@ class _MapScreenState extends State<MapScreen> {
                                     ],
                                   ),
                                 ),
+
+                                /// Map with set late long
                                 const MapContaine(),
+
                                 HeadingTile(
                                   text: 'Services',
                                   onTap: () {},
@@ -185,38 +194,6 @@ class _MapScreenState extends State<MapScreen> {
                                 ),
                                 const SizedBox(height: 30),
                                 const CommonServicesCard(),
-                                Selector<MapProvider, List<MapServiceModel>>(
-                                  selector: (p0, p1) => p1.homeMapList,
-                                  builder: (context, value, child) {
-                                    return ListView.builder(
-                                      shrinkWrap: true,
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 20),
-                                      physics:
-                                          const NeverScrollableScrollPhysics(),
-                                      itemCount:
-                                          value.length + (loader ? 1 : 0),
-                                      itemBuilder: (context, index) {
-                                        return index == value.length
-                                            ? const Center(
-                                                child:
-                                                    CircularProgressIndicator())
-                                            : const Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    vertical: 10),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(20.0),
-                                                  child: Column(
-                                                    children: [
-                                                      // Text(value[index].commonServices[0])
-                                                    ],
-                                                  ),
-                                                ),
-                                              );
-                                      },
-                                    );
-                                  },
-                                ),
                               ],
                             );
                           }),
